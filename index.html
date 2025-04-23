@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estimación de Historia de Usuario</title>
     <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxXlHdwX2D3_yL9vWQrM1BdqYTPWAgCALvuOK0kT4ALLaQwanZs479JH7jd500Qag-QfQ/exec';
+        
         function calcularEstimacion() {
             // Obtener los valores de los criterios
             let complejidad = parseInt(document.getElementById("complejidad").value);
@@ -34,29 +36,44 @@
 
             // Mostrar el resultado
             document.getElementById("resultado").innerText = "Estimación: " + estimacion;
+
+            // Enviar los datos al Google Sheets
+            const form = document.forms['submit-to-google-sheet'];
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: new FormData(form) 
+            })
+            .then(response => alert('¡Estimación enviada correctamente!'))
+            .catch(error => alert('Error al enviar. Revisa la consola.'));
         }
     </script>
 </head>
 <body>
     <h1>Formulario de Estimación de Historia de Usuario</h1>
-    <form id="formulario" onsubmit="event.preventDefault(); calcularEstimacion();">
+    
+    <form name="submit-to-google-sheet" id="formulario" onsubmit="event.preventDefault(); calcularEstimacion();">
+        <input name="nombre" type="text" placeholder="Tu nombre" required /><br><br>
+        <input name="historiaUsuario" type="text" placeholder="Nombre de la HU" required /><br><br>
+        <input name="fecha" type="date" required /><br><br>
+
         <label for="complejidad">Complejidad Técnica (1-5):</label><br>
-        <input type="number" id="complejidad" min="1" max="5" required><br><br>
+        <input type="number" id="complejidad" name="complejidad" min="1" max="5" required><br><br>
         
         <label for="esfuerzo">Esfuerzo Estimado (1-5):</label><br>
-        <input type="number" id="esfuerzo" min="1" max="5" required><br><br>
+        <input type="number" id="esfuerzo" name="esfuerzo" min="1" max="5" required><br><br>
         
         <label for="riesgo">Riesgo/Incertidumbre (1-5):</label><br>
-        <input type="number" id="riesgo" min="1" max="5" required><br><br>
+        <input type="number" id="riesgo" name="incertidumbre" min="1" max="5" required><br><br>
         
         <label for="impacto">Impacto en el Negocio (1-5):</label><br>
-        <input type="number" id="impacto" min="1" max="5" required><br><br>
+        <input type="number" id="impacto" name="impactoNegocio" min="1" max="5" required><br><br>
         
         <label for="dependencias">Dependencias (1-5):</label><br>
-        <input type="number" id="dependencias" min="1" max="5" required><br><br>
+        <input type="number" id="dependencias" name="dependencias" min="1" max="5" required><br><br>
         
         <button type="submit">Calcular Estimación</button>
     </form>
+    
     <p id="resultado"></p>
 </body>
 </html>
