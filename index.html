@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Formulario de Estimación Daniel Intento 3</title>
+    <title>Formulario de Estimación Daniel Intento 7</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,7 +49,7 @@
     </style>
 </head>
 <body>
-    <h1>Formulario de Estimación Daniel Intento 3</h1>
+    <h1>Formulario de Estimación Daniel Intento 7</h1>
     <form id="estimacionForm">
         <label for="fecha">Fecha:</label>
         <input type="date" id="fecha" name="fecha" required>
@@ -113,30 +113,39 @@
             const impactoNegocio = document.getElementById("impactoNegocio").value;
             const dependencias = document.getElementById("dependencias").value;
 
-            fetch("https://script.google.com/macros/s/AKfycbw1feFKKilPnCZ7J5z9zD_qVa5PmLM-4fqsmrKt_d3h7TPAyDCXHkFcyfwa0rfIggRM1A/exec, {
+            const url = "https://script.google.com/macros/s/AKfycbwt5rVhJGReCkFIpvkAzAIg99yJ7Flio8_Td-ycUZVPyV_epfrDaH8MjkozhGYRLaHyqQ/exec";
+
+            const formData = new URLSearchParams();
+            formData.append("fecha", fecha);
+            formData.append("nombre", nombre);
+            formData.append("historiaUsuario", historiaUsuario);
+            formData.append("complejidad", complejidad);
+            formData.append("esfuerzo", esfuerzo);
+            formData.append("incertidumbre", incertidumbre);
+            formData.append("impactoNegocio", impactoNegocio);
+            formData.append("dependencias", dependencias);
+
+            fetch(url, {
                 method: "POST",
-                mode: "no-cors",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
                 },
-                body: new URLSearchParams({
-                    fecha: fecha,
-                    nombre: nombre,
-                    historiaUsuario: historiaUsuario,
-                    complejidad: complejidad,
-                    esfuerzo: esfuerzo,
-                    incertidumbre: incertidumbre,
-                    impactoNegocio: impactoNegocio,
-                    dependencias: dependencias
-                }).toString()
+                body: formData.toString(),
             })
-            .then(() => {
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text(); // o response.json(), dependiendo de lo que devuelva tu script
+            })
+            .then(data => {
+                console.log("Respuesta del servidor:", data); // Para depuración
                 alert("Estimación enviada con éxito ✅");
                 form.reset();
             })
-            .catch((err) => {
-                alert("Ocurrió un error al enviar la estimación ❌");
-                console.error(err);
+            .catch(error => {
+                console.error("Error al enviar la estimación:", error);
+                alert("Ocurrió un error al enviar la estimación ❌. Por favor, revisa la consola para más detalles.");
             });
         });
     </script>
