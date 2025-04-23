@@ -1,144 +1,144 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Formulario de Estimación Daniel Tarde</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background: #f4f4f4;
-    }
-    h1 {
-      text-align: center;
-    }
-    form {
-      max-width: 600px;
-      margin: auto;
-      background: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 15px;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-    button {
-      margin-top: 20px;
-      padding: 10px 15px;
-      background-color: #007BFF;
-      border: none;
-      color: white;
-      font-weight: bold;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario de Estimación Daniel Intento 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <h1>Formulario de Estimación Daniel Tarde</h1>
-  <form id="estimacionForm">
-    <label for="nombre">Nombre de quien estima:</label>
-    <input type="text" id="nombre" name="nombre" required>
+    <h1>Formulario de Estimación Daniel Intento 2</h1>
+    <form id="estimacionForm">
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required>
 
-    <label for="historiaUsuario">Nombre de la Historia de Usuario:</label>
-    <input type="text" id="historiaUsuario" name="historiaUsuario" required>
+        <label for="nombre">Nombre de quien estima:</label>
+        <input type="text" id="nombre" name="nombre" required>
 
-    <label for="fecha">Fecha:</label>
-    <input type="date" id="fecha" name="fecha" required>
+        <label for="historiaUsuario">Nombre de la Historia de Usuario:</label>
+        <input type="text" id="historiaUsuario" name="historiaUsuario" required>
 
-    <label for="complejidad">Complejidad (1-5):</label>
-    <select id="complejidad" name="complejidad">
-      <option value="1">1</option><option value="2">2</option>
-      <option value="3">3</option><option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+        <label for="complejidad">Complejidad (1-5):</label>
+        <select id="complejidad" name="complejidad">
+            <option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option>
+            <option value="5">5</option>
+        </select>
 
-    <label for="esfuerzo">Esfuerzo (1-5):</label>
-    <select id="esfuerzo" name="esfuerzo">
-      <option value="1">1</option><option value="2">2</option>
-      <option value="3">3</option><option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+        <label for="esfuerzo">Esfuerzo (1-5):</label>
+        <select id="esfuerzo" name="esfuerzo">
+            <option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option>
+            <option value="5">5</option>
+        </select>
 
-    <label for="incertidumbre">Incertidumbre (1-5):</label>
-    <select id="incertidumbre" name="incertidumbre">
-      <option value="1">1</option><option value="2">2</option>
-      <option value="3">3</option><option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+        <label for="incertidumbre">Incertidumbre (1-5):</label>
+        <select id="incertidumbre" name="incertidumbre">
+            <option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option>
+            <option value="5">5</option>
+        </select>
 
-    <label for="impactoNegocio">Impacto en el negocio (1-5):</label>
-    <select id="impactoNegocio" name="impactoNegocio">
-      <option value="1">1</option><option value="2">2</option>
-      <option value="3">3</option><option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+        <label for="impactoNegocio">Impacto en el negocio (1-5):</label>
+        <select id="impactoNegocio" name="impactoNegocio">
+            <option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option>
+            <option value="5">5</option>
+        </select>
 
-    <label for="dependencias">Dependencias (1-5):</label>
-    <select id="dependencias" name="dependencias">
-      <option value="1">1</option><option value="2">2</option>
-      <option value="3">3</option><option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+        <label for="dependencias">Dependencias (1-5):</label>
+        <select id="dependencias" name="dependencias">
+            <option value="1">1</option><option value="2">2</option>
+            <option value="3">3</option><option value="4">4</option>
+            <option value="5">5</option>
+        </select>
 
-    <button type="submit">Calcular Estimación</button>
-  </form>
+        <button type="submit">Calcular Estimación</button>
+    </form>
 
-  <script>
-    const form = document.getElementById("estimacionForm");
+    <script>
+        const form = document.getElementById("estimacionForm");
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
 
-      const nombre = document.getElementById("nombre").value;
-      const historiaUsuario = document.getElementById("historiaUsuario").value;
-      const fecha = document.getElementById("fecha").value;
-      const complejidad = document.getElementById("complejidad").value;
-      const esfuerzo = document.getElementById("esfuerzo").value;
-      const incertidumbre = document.getElementById("incertidumbre").value;
-      const impactoNegocio = document.getElementById("impactoNegocio").value;
-      const dependencias = document.getElementById("dependencias").value;
+            const fecha = document.getElementById("fecha").value;
+            const nombre = document.getElementById("nombre").value;
+            const historiaUsuario = document.getElementById("historiaUsuario").value;
+            const complejidad = document.getElementById("complejidad").value;
+            const esfuerzo = document.getElementById("esfuerzo").value;
+            const incertidumbre = document.getElementById("incertidumbre").value;
+            const impactoNegocio = document.getElementById("impactoNegocio").value;
+            const dependencias = document.getElementById("dependencias").value;
 
-      fetch("https://script.google.com/macros/s/AKfycbzg9xsELVXo8kiLo3XPsEKYUbFo-EbkZdTdjXTIZkg03IDdetYQdZhRupAVFhJWAoKCkA/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: new URLSearchParams({
-          nombre,
-          historiaUsuario,
-          fecha,
-          complejidad,
-          esfuerzo,
-          incertidumbre,
-          impactoNegocio,
-          dependencias
-        })
-      })
-      .then(() => {
-        alert("Estimación enviada con éxito ✅");
-        form.reset();
-      })
-      .catch((err) => {
-        alert("Ocurrió un error al enviar la estimación ❌");
-        console.error(err);
-      });
-    });
-  </script>
+            fetch("https://script.google.com/macros/s/AKfycbzg9xsELVXo8kiLo3XPsEKYUbFo-EbkZdTdjXTIZkg03IDdetYQdZhRupAVFhJWAoKCkA/exec", {
+                method: "POST",
+                mode: "no-cors",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: new URLSearchParams({
+                    fecha: fecha,
+                    nombre: nombre,
+                    historiaUsuario: historiaUsuario,
+                    complejidad: complejidad,
+                    esfuerzo: esfuerzo,
+                    incertidumbre: incertidumbre,
+                    impactoNegocio: impactoNegocio,
+                    dependencias: dependencias
+                }).toString()
+            })
+            .then(() => {
+                alert("Estimación enviada con éxito ✅");
+                form.reset();
+            })
+            .catch((err) => {
+                alert("Ocurrió un error al enviar la estimación ❌");
+                console.error(err);
+            });
+        });
+    </script>
 </body>
 </html>
