@@ -7,86 +7,87 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', sans-serif; /* Fuente moderna y legible */
             padding: 20px;
-            background: #f9f9f9;
+            background: #f9f9f9; /* Fondo muy claro */
             color: #333;
-            line-height: 1.6;
+            line-height: 1.6;  /* Mejora la legibilidad del texto */
         }
         h1 {
             text-align: center;
             margin-bottom: 2rem;
-            color: #2c3e50;
+            color: #2c3e50; /* Título más oscuro */
         }
         form {
             max-width: 600px;
             margin: auto;
-            background: #ffffff;
+            background: #ffffff; /* Fondo blanco para el formulario */
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Sombra sutil */
         }
         label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #444;
+            color: #444; /* Etiqueta un poco más oscura */
             font-weight: 600;
             font-size: 1em;
         }
         input, select {
             width: 100%;
             padding: 0.75rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.5rem; /* Más espacio entre elementos */
             border-radius: 6px;
-            border: 1px solid #ddd;
-            transition: border-color 0.3s ease;
+            border: 1px solid #ddd; /* Bordes más suaves */
+            transition: border-color 0.3s ease; /* Transición suave para el foco */
             font-size: 1em;
         }
         input:focus, select:focus {
             outline: none;
-            border-color: #4CAF50;
-            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+            border-color: #4CAF50; /* Resalta el campo enfocado */
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2); /* Añade un halo suave */
         }
         button {
             margin-top: 2rem;
             padding: 0.75rem 1.5rem;
-            background-color: #4CAF50;
+            background-color: #4CAF50; /* Verde más moderno */
             border: none;
             color: white;
             font-weight: bold;
             border-radius: 6px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease; /* Transición suave */
             font-size: 1.1em;
-            width: 100%;
+            width: 100%; /* Ancho completo del contenedor */
         }
         button:hover {
-            background-color: #45a049;
+            background-color: #45a049; /* Verde más oscuro al pasar el mouse */
         }
         button:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.3); /* Halo al enfocar el botón */
         }
 
+        /* Estilos para la tabla de información */
         .info-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 2rem;
             background-color: #f8f8f8;
             border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08); /* Sombra muy suave */
             font-size: 0.95em;
             color: #444;
-            overflow: hidden;
+            overflow: hidden;  /* Para que los bordes redondeados de la tabla funcionen */
         }
         .info-table th, .info-table td {
-            border: 1px solid #eee;
+            border: 1px solid #eee; /* Bordes casi invisibles */
             padding: 1rem;
             text-align: left;
         }
         .info-table th {
             font-weight: bold;
-            background-color: #f1f1f1;
+            background-color: #f1f1f1; /* Gris muy claro para encabezados */
             color: #333;
         }
         .info-table td {
@@ -96,6 +97,8 @@
              background-color: #f1f1f1;
         }
 
+
+        /* Estilo para el encabezado de la sección */
         .info-header {
             font-size: 1.5em;
             font-weight: bold;
@@ -103,21 +106,22 @@
             margin-bottom: 1.5rem;
             color: #2c3e50;
             text-align: center;
-            text-transform: uppercase;
+            text-transform: uppercase; /* Encabezado en mayúsculas */
             letter-spacing: 0.05em;
         }
 
+         /* Separador visual */
         hr {
             margin: 2rem auto;
             border: 0;
-            border-top: 1px solid #e0e0e0;
-            width: 80%;
+            border-top: 1px solid #e0e0e0; /* Separador muy claro */
+            width: 80%; /* Ancho del separador */
         }
 
     </style>
 </head>
 <body>
-    <h1>Formulario de Estimación de Historias</h1>
+    <h1>Formulario de Estimación de Historias Celulas Alkosto / Ktronix</h1>
 
     <h2 class="info-header">Guía de Puntuación</h2>
     <table class="info-table">
@@ -214,29 +218,81 @@
         <select id="esfuerzo" name="esfuerzo">
             <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
-            <option value="5">5</option>
         </select>
 
         <label for="incertidumbre">Incertidumbre (1-5):</label>
         <select id="incertidumbre" name="incertidumbre">
             <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
-            <option value="5">5</option>
         </select>
 
         <label for="impactoNegocio">Impacto en el negocio (1-5):</label>
         <select id="impactoNegocio" name="impactoNegocio">
             <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
-            <option value="5">5</option>
         </select>
 
         <label for="dependencias">Dependencias (1-5):</label>
         <select id="dependencias" name="dependencias">
             <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
-            <option value="5">5</option>
         </select>
 
         <button type="submit">Calcular Estimación</button>
     </form>
+
+    <script>
+        const form = document.getElementById("estimacionForm");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const fecha = document.getElementById("fecha").value;
+            const nombre = document.getElementById("nombre").value;
+            const historiaUsuario = document.getElementById("historiaUsuario").value;
+            const rol = document.getElementById("rol").value;
+            const complejidad = document.getElementById("complejidad").value;
+            const esfuerzo = document.getElementById("esfuerzo").value;
+            const incertidumbre = document.getElementById("incertidumbre").value;
+            const impactoNegocio = document.getElementById("impactoNegocio").value;
+            const dependencias = document.getElementById("dependencias").value;
+
+            const url = "https://script.google.com/macros/s/AKfycbw1Pq5360wiXPl-xIN2gHfnMWRR6oXVAVl17XFV7oHNfGcOk5389oEVOCBtAr_Z61sTHQ/exec";
+
+            const formData = new URLSearchParams();
+            formData.append("fecha", fecha);
+            formData.append("nombre", nombre);
+            formData.append("historiaUsuario", historiaUsuario);
+            formData.append("rol", rol);
+            formData.append("complejidad", complejidad);
+            formData.append("esfuerzo", esfuerzo);
+            formData.append("incertidumbre", incertidumbre);
+            formData.append("impactoNegocio", impactoNegocio);
+            formData.append("dependencias", dependencias);
+
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: formData.toString(),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                console.log("Respuesta del servidor:", data);
+                alert("Estimación enviada con éxito ✅");
+                form.reset();
+            })
+            .catch(error => {
+                console.error("Error al enviar la estimación:", error);
+                alert("Ocurrió un error al enviar la estimación ❌. Por favor, revisa la consola para más detalles.");
+            });
+        });
+    </script>
+</body>
+</html>
