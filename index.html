@@ -1,73 +1,143 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formulario de Estimación Daniel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulario de Estimación</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f3f3f3;
-      padding: 40px;
+      padding: 20px;
+      background: #f4f4f4;
     }
-
+    h1 {
+      text-align: center;
+    }
     form {
-      background: white;
-      padding: 30px;
-      max-width: 500px;
+      max-width: 600px;
       margin: auto;
+      background: #fff;
+      padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
-    input, button {
+    label {
+      font-weight: bold;
       display: block;
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 10px;
-      font-size: 16px;
+      margin-top: 15px;
     }
-
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
     button {
-      background-color: #4CAF50;
-      color: white;
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #007BFF;
       border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 4px;
       cursor: pointer;
     }
-
     button:hover {
-      background-color: #45a049;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 25px;
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
-  <form name="submit-to-google-sheet">
-    <h2>Formulario de Estimación</h2>
-    <input name="nombre" type="text" placeholder="Tu nombre" required />
-    <input name="historiaUsuario" type="text" placeholder="Nombre de la Historia de Usuario" required />
-    <input name="fecha" type="date" required />
-    <input name="complejidad" type="number" min="1" max="5" placeholder="Complejidad (1 a 5)" required />
-    <input name="esfuerzo" type="number" min="1" max="5" placeholder="Esfuerzo (1 a 5)" required />
-    <input name="incertidumbre" type="number" min="1" max="5" placeholder="Incertidumbre (1 a 5)" required />
-    <input name="impactoNegocio" type="number" min="1" max="5" placeholder="Impacto en el Negocio (1 a 5)" required />
-    <input name="dependencias" type="number" min="1" max="5" placeholder="Dependencias (1 a 5)" required />
-    <button type="submit">Enviar Estimación</button>
+  <h1>Formulario de Estimación</h1>
+  <form id="estimacionForm">
+    <label for="nombre">Nombre de quien estima:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="historiaUsuario">Nombre de la Historia de Usuario:</label>
+    <input type="text" id="historiaUsuario" name="historiaUsuario" required>
+
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" name="fecha" required>
+
+    <label for="complejidad">Complejidad (1-5):</label>
+    <select id="complejidad" name="complejidad">
+      <option value="1">1</option><option value="2">2</option>
+      <option value="3">3</option><option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <label for="esfuerzo">Esfuerzo (1-5):</label>
+    <select id="esfuerzo" name="esfuerzo">
+      <option value="1">1</option><option value="2">2</option>
+      <option value="3">3</option><option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <label for="incertidumbre">Incertidumbre (1-5):</label>
+    <select id="incertidumbre" name="incertidumbre">
+      <option value="1">1</option><option value="2">2</option>
+      <option value="3">3</option><option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <label for="impactoNegocio">Impacto en el negocio (1-5):</label>
+    <select id="impactoNegocio" name="impactoNegocio">
+      <option value="1">1</option><option value="2">2</option>
+      <option value="3">3</option><option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <label for="dependencias">Dependencias (1-5):</label>
+    <select id="dependencias" name="dependencias">
+      <option value="1">1</option><option value="2">2</option>
+      <option value="3">3</option><option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <button type="submit">Calcular Estimación</button>
   </form>
 
   <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxXlHdwX2D3_yL9vWQrM1BdqYTPWAgCALvuOK0kT4ALLaQwanZs479JH7jd500Qag-QfQ/exec';
-    const form = document.forms['submit-to-google-sheet'];
+    const form = document.getElementById("estimacionForm");
 
-    form.addEventListener('submit', e => {
+    form.addEventListener("submit", function(e) {
       e.preventDefault();
-      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => alert("¡Estimación enviada exitosamente!"))
-        .catch(error => alert("Hubo un error. Revisa la consola o intenta nuevamente."));
+
+      const nombre = document.getElementById("nombre").value;
+      const historiaUsuario = document.getElementById("historiaUsuario").value;
+      const fecha = document.getElementById("fecha").value;
+      const complejidad = document.getElementById("complejidad").value;
+      const esfuerzo = document.getElementById("esfuerzo").value;
+      const incertidumbre = document.getElementById("incertidumbre").value;
+      const impactoNegocio = document.getElementById("impactoNegocio").value;
+      const dependencias = document.getElementById("dependencias").value;
+
+      fetch("https://script.google.com/macros/s/AKfycbxXlHdwX2D3_yL9vWQrM1BdqYTPWAgCALvuOK0kT4ALLaQwanZs479JH7jd500Qag-QfQ/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          nombre,
+          historiaUsuario,
+          fecha,
+          complejidad,
+          esfuerzo,
+          incertidumbre,
+          impactoNegocio,
+          dependencias
+        })
+      })
+      .then(() => {
+        alert("Estimación enviada con éxito ✅");
+        form.reset();
+      })
+      .catch((err) => {
+        alert("Ocurrió un error al enviar la estimación ❌");
+        console.error(err);
+      });
     });
   </script>
 </body>
