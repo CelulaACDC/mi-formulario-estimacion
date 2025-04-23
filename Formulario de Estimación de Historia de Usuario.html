@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimación de Historia de Usuario</title>
+    <script>
+        function calcularEstimacion() {
+            // Obtener los valores de los criterios
+            let complejidad = parseInt(document.getElementById("complejidad").value);
+            let esfuerzo = parseInt(document.getElementById("esfuerzo").value);
+            let riesgo = parseInt(document.getElementById("riesgo").value);
+            let impacto = parseInt(document.getElementById("impacto").value);
+            let dependencias = parseInt(document.getElementById("dependencias").value);
+
+            // Sumar todos los valores
+            let total = complejidad + esfuerzo + riesgo + impacto + dependencias;
+
+            // Determinar la estimación en días
+            let estimacion = "";
+            if (total <= 6) {
+                estimacion = "1-8 días";
+            } else if (total <= 10) {
+                estimacion = "2-3 días";
+            } else if (total <= 14) {
+                estimacion = "4-5 días";
+            } else if (total <= 17) {
+                estimacion = "6-7 días";
+            } else if (total <= 20) {
+                estimacion = "8-10 días";
+            } else {
+                estimacion = "10-12 días";
+            }
+
+            // Mostrar el resultado
+            document.getElementById("resultado").innerText = "Estimación: " + estimacion;
+        }
+    </script>
+</head>
+<body>
+    <h1>Formulario de Estimación de Historia de Usuario</h1>
+    <form id="formulario" onsubmit="event.preventDefault(); calcularEstimacion();">
+        <label for="complejidad">Complejidad Técnica (1-5):</label><br>
+        <input type="number" id="complejidad" min="1" max="5" required><br><br>
+        
+        <label for="esfuerzo">Esfuerzo Estimado (1-5):</label><br>
+        <input type="number" id="esfuerzo" min="1" max="5" required><br><br>
+        
+        <label for="riesgo">Riesgo/Incertidumbre (1-5):</label><br>
+        <input type="number" id="riesgo" min="1" max="5" required><br><br>
+        
+        <label for="impacto">Impacto en el Negocio (1-5):</label><br>
+        <input type="number" id="impacto" min="1" max="5" required><br><br>
+        
+        <label for="dependencias">Dependencias (1-5):</label><br>
+        <input type="number" id="dependencias" min="1" max="5" required><br><br>
+        
+        <button type="submit">Calcular Estimación</button>
+    </form>
+    <p id="resultado"></p>
+</body>
+</html>
