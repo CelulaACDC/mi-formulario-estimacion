@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Formulario de Estimación de Historias Células Alkosto - Ktronix Daniel2</title>
+    <title>Formulario de Estimación de Historias Células Alkosto - Ktronix</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -20,6 +20,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            /* Degradado de fondo combinado Alkosto y Ktronix */
             background: linear-gradient(135deg, #004aad80, #f5822080);
             opacity: 0.5;
             z-index: -1;
@@ -27,7 +28,7 @@
         h1 {
             text-align: center;
             margin-bottom: 2rem;
-            color: #004AAD;
+            color: #004AAD; /* Azul Alkosto */
         }
         form {
             max-width: 600px;
@@ -36,7 +37,7 @@
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            border-top: 4px solid #F58220;
+            border-top: 4px solid #F58220; /* Naranja Ktronix */
         }
         label {
             display: block;
@@ -56,13 +57,13 @@
         }
         input:focus, select:focus {
             outline: none;
-            border-color: #004AAD;
+            border-color: #004AAD; /* Azul Alkosto */
             box-shadow: 0 0 0 2px rgba(0, 74, 173, 0.2);
         }
         button {
             margin-top: 2rem;
             padding: 0.75rem 1.5rem;
-            background-color: #F58220;
+            background-color: #F58220; /* Naranja Ktronix */
             border: none;
             color: white;
             font-weight: bold;
@@ -73,7 +74,7 @@
             width: 100%;
         }
         button:hover {
-            background-color: #ED5E00;
+            background-color: #ED5E00; /* Naranja Ktronix (más oscuro) */
         }
         button:focus {
             outline: none;
@@ -99,14 +100,14 @@
         }
         .info-table th {
             font-weight: bold;
-            background-color: #004AAD;
+            background-color: #004AAD; /* Azul Alkosto */
             color: white;
         }
         .info-table td {
             background-color: #ffffff;
         }
         .info-table thead tr {
-             background-color: #004AAD;
+             background-color: #004AAD;  /* Azul Alkosto */
              color: white;
         }
 
@@ -115,7 +116,7 @@
             font-weight: bold;
             margin-top: 3rem;
             margin-bottom: 1rem;
-            color: #004AAD;
+            color: #004AAD; /* Azul Alkosto */
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -150,7 +151,7 @@
 </head>
 <body>
     <div class="logos">
-    </div>
+        </div>
 
     <h1>Formulario de Estimación de Historias Células Alkosto - Ktronix</h1>
 
@@ -295,7 +296,7 @@
             const impactoNegocio = document.getElementById("impactoNegocio").value;
             const dependencias = document.getElementById("dependencias").value;
 
-            const url = "https://script.google.com/macros/s/AKfycbzfVaVfs_2UF_i8qmFFvVCHVaByhCSWb2msdTbn-UYalVT-Bfo7rz8KdejU4tE7JsiGnQ/exec"; // Reemplaza con la URL de tu script
+            const url = "https://script.google.com/macros/s/AKfycbx0zSPXvTuYnoHfbQhpF5COYmOfDFzTtuJAJT2Npz3eJK9j4ys0XqOq307RG4Ya8F1EEw/exec";
 
             const formData = new URLSearchParams();
             formData.append("fecha", fecha);
@@ -319,17 +320,12 @@
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                return response.json();
+                return response.json(); // Cambiado a response.json()
             })
             .then(data => {
                 console.log("Respuesta del servidor:", data);
-                if (data.status === "OK") {
-                    alert("Estimación enviada con éxito ✅");
-                    form.reset();
-                } else {
-                    alert("Ocurrió un error al enviar la estimación ❌. Por favor, revisa la consola para más detalles.");
-                }
-
+                alert("Estimación enviada con éxito ✅");
+                form.reset();
             })
             .catch(error => {
                 console.error("Error al enviar la estimación:", error);
