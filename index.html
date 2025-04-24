@@ -153,7 +153,7 @@
     <div class="logos">
     </div>
 
-    <h1>Formulario de Estimación de Historias Células Alkosto - Ktronix Daniel</h1>
+    <h1>Formulario de Estimación de Historias Células Alkosto - Ktronix Daniel 2</h1>
 
     <h2 class="info-header">Guía de Puntuación</h2>
     <table class="info-table">
@@ -271,7 +271,6 @@
         <select id="dependencias" name="dependencias">
             <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
-            <option value="5">5</option>
         </select>
 
         <button type="submit">Calcular Estimación</button>
@@ -286,6 +285,18 @@
 
     <script>
         const form = document.getElementById("estimacionForm");
+
+        function limpiarFormulario() {
+            document.getElementById("fecha").value = "";
+            document.getElementById("nombre").value = "";
+            document.getElementById("historiaUsuario").value = "";
+            document.getElementById("rol").value = "";
+            document.getElementById("complejidad").value = "1";
+            document.getElementById("esfuerzo").value = "1";
+            document.getElementById("incertidumbre").value = "1";
+            document.getElementById("impactoNegocio").value = "1";
+            document.getElementById("dependencias").value = "1";
+        }
 
         form.addEventListener("submit", function(e) {
             e.preventDefault();
@@ -329,11 +340,12 @@
             .then(data => {
                 console.log("Respuesta del servidor:", data);
                 alert("Estimación enviada con éxito ✅");
-                form.reset(); // Esta línea resetea el formulario
+                limpiarFormulario(); // Limpia el formulario después de éxito
             })
             .catch(error => {
                 console.error("Error al enviar la estimación:", error);
-                alert("Estimación enviada con éxito ✅.");
+                alert("Error al enviar la estimación. Por favor, inténtelo de nuevo.");
+                limpiarFormulario(); // Limpia el formulario también en caso de error
             });
         });
     </script>
