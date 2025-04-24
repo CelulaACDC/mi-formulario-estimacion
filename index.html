@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Formulario de Estimación de Historias Células Alkosto - Ktronix</title>
+    <title>Formulario de Estimación de Historias Células Alkosto - Ktronix Daniek</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -107,8 +107,8 @@
             background-color: #ffffff;
         }
         .info-table thead tr {
-             background-color: #004AAD;  /* Azul Alkosto */
-             color: white;
+            background-color: #004AAD;  /* Azul Alkosto */
+            color: white;
         }
 
         .info-header {
@@ -151,9 +151,9 @@
 </head>
 <body>
     <div class="logos">
-        </div>
+    </div>
 
-    <h1>Formulario de Estimación de Historias Células Alkosto - Ktronix</h1>
+    <h1>Formulario de Estimación de Historias Células Alkosto - Ktronix Daniel</h1>
 
     <h2 class="info-header">Guía de Puntuación</h2>
     <table class="info-table">
@@ -217,7 +217,7 @@
         </tbody>
     </table>
 
-    <form id="estimacionForm">
+    <form id="estimacionForm" action="https://script.google.com/macros/s/AKfycbxwhAAy6ZAQ--8xm4Ef0JS8rJGuhNyt96iWhey-GK5TbdDcObGOOFLMfZoJLSnAe4ZvXQ/exec" method="post">
         <label for="fecha">Fecha:</label>
         <input type="date" id="fecha" name="fecha" required>
 
@@ -296,7 +296,7 @@
             const impactoNegocio = document.getElementById("impactoNegocio").value;
             const dependencias = document.getElementById("dependencias").value;
 
-            const url = "https://script.google.com/macros/s/AKfycbx1dPtdZhyrg7WK0_tnSi3O-L5XeP689FauxryjVtNEzDUiB2Yf7k8ji-kJNR-luBdu/exec";
+            const url = "https://script.google.com/macros/s/AKfycbxwhAAy6ZAQ--8xm4Ef0JS8rJGuhNyt96iWhey-GK5TbdDcObGOOFLMfZoJLSnAe4ZvXQ/exec";
 
             const formData = new URLSearchParams();
             formData.append("fecha", fecha);
@@ -320,7 +320,7 @@
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                return response.json(); // Cambiado a response.json()
+                return response.json();
             })
             .then(data => {
                 console.log("Respuesta del servidor:", data);
