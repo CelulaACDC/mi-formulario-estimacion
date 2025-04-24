@@ -147,75 +147,130 @@
             font-size: 0.9em;
             color: #888;
         }
+
+        /* Estilos para el acordeón */
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            transition: background-color 0.4s ease;
+            border-radius: 6px;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion.active, .accordion:hover {
+            background-color: #ddd;
+        }
+
+        .accordion:after {
+            content: '\002B'; /* Unicode character for '+' */
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .accordion.active:after {
+            content: '\2212'; /* Unicode character for '-' */
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .panel.show {
+            max-height: 500px; /* Ajusta este valor según el contenido */
+        }
     </style>
 </head>
 <body>
     <div class="logos">
     </div>
 
-    <h1>Formulario de Estimación de Historias Células Alkosto - Ktronix Daniel 3</h1>
+    <h1>Formulario de Estimación de Historias Células Alkosto - Ktronix Daniel 4</h1>
 
-    <h2 class="info-header">Guía de Puntuación</h2>
-    <table class="info-table">
-        <thead>
-            <tr>
-                <th>Criterio</th>
-                <th>Pregunta Guía</th>
-                <th>1</th>
-                <th>2</th>
-                <th>3</th>
-                <th>4</th>
-                <th>5</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Complejidad técnica</td>
-                <td>¿Qué tan difícil es técnicamente implementar esta historia?</td>
-                <td>Muy baja</td>
-                <td>Baja</td>
-                <td>Moderada</td>
-                <td>Alta</td>
-                <td>Muy alta</td>
-            </tr>
-            <tr>
-                <td>Esfuerzo estimado</td>
-                <td>¿Cuánto trabajo implica construir esta historia?</td>
-                <td>Muy bajo</td>
-                <td>Bajo</td>
-                <td>Moderado</td>
-                <td>Alto</td>
-                <td>Muy alto</td>
-            </tr>
-            <tr>
-                <td>Riesgo / Incertidumbre</td>
-                <td>¿Qué tanto sabemos sobre lo que se debe hacer? ¿Hay posibles bloqueos?</td>
-                <td>Muy bajo</td>
-                <td>Bajo</td>
-                <td>Moderada</td>
-                <td>Alto</td>
-                <td>Muy alto</td>
-            </tr>
-            <tr>
-                <td>Impacto en el negocio</td>
-                <td>¿Qué tan relevante es esta historia para el cliente o los objetivos del sprint?</td>
-                <td>Muy bajo</td>
-                <td>Bajo</td>
-                <td>Moderado</td>
-                <td>Alto</td>
-                <td>Muy alto</td>
-            </tr>
-            <tr>
-                <td>Dependencias</td>
-                <td>¿Depende de otros equipos o procesos?</td>
-                <td>Sin dependencias</td>
-                <td>Bajas</td>
-                <td>Moderadas</td>
-                <td>Altas</td>
-                <td>Muy altas</td>
-            </tr>
-        </tbody>
-    </table>
+    <button class="accordion">Guía de Puntuación</button>
+    <div class="panel">
+        <table class="info-table">
+            <thead>
+                <tr>
+                    <th>Criterio</th>
+                    <th>Pregunta Guía</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Complejidad técnica</td>
+                    <td>¿Qué tan difícil es técnicamente implementar esta historia?</td>
+                    <td>Muy baja</td>
+                    <td>Baja</td>
+                    <td>Moderada</td>
+                    <td>Alta</td>
+                    <td>Muy alta</td>
+                </tr>
+                <tr>
+                    <td>Esfuerzo estimado</td>
+                    <td>¿Cuánto trabajo implica construir esta historia?</td>
+                    <td>Muy bajo</td>
+                    <td>Bajo</td>
+                    <td>Moderado</td>
+                    <td>Alto</td>
+                    <td>Muy alto</td>
+                </tr>
+                <tr>
+                    <td>Riesgo / Incertidumbre</td>
+                    <td>¿Qué tanto sabemos sobre lo que se debe hacer? ¿Hay posibles bloqueos?</td>
+                    <td>Muy bajo</td>
+                    <td>Bajo</td>
+                    <td>Moderada</td>
+                    <td>Alto</td>
+                    <td>Muy alto</td>
+                </tr>
+                <tr>
+                    <td>Impacto en el negocio</td>
+                    <td>¿Qué tan relevante es esta historia para el cliente o los objetivos del sprint?</td>
+                    <td>Muy bajo</td>
+                    <td>Bajo</td>
+                    <td>Moderado</td>
+                    <td>Alto</td>
+                    <td>Muy alto</td>
+                </tr>
+                <tr>
+                    <td>Dependencias</td>
+                    <td>¿Depende de otros equipos o procesos?</td>
+                    <td>Sin dependencias</td>
+                    <td>Bajas</td>
+                    <td>Moderadas</td>
+                    <td>Altas</td>
+                    <td>Muy altas</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <form id="estimacionForm" action="https://script.google.com/macros/s/AKfycbxwhAAy6ZAQ--8xm4Ef0JS8rJGuhNyt96iWhey-GK5TbdDcObGOOFLMfZoJLSnAe4ZvXQ/exec" method="post">
         <label for="fecha">Fecha:</label>
@@ -286,6 +341,17 @@
 
     <script>
         const form = document.getElementById("estimacionForm");
+        const acordionBtn = document.querySelector(".accordion");
+        const panel = document.querySelector(".panel");
+
+        acordionBtn.addEventListener("click", function() {
+            this.classList.toggle("active");
+            if (panel.classList.contains("show")) {
+                panel.classList.remove("show");
+            } else {
+                panel.classList.add("show");
+            }
+        });
 
         function limpiarFormulario() {
             document.getElementById("fecha").value = "";
@@ -341,12 +407,12 @@
             .then(data => {
                 console.log("Respuesta del servidor:", data);
                 alert("Estimación enviada con éxito ✅");
-                limpiarFormulario(); // Limpia el formulario después de éxito
+                limpiarFormulario();
             })
             .catch(error => {
                 console.error("Error al enviar la estimación:", error);
                 alert("Estimación enviada con éxito ✅");
-                limpiarFormulario(); // Limpia el formulario también en caso de error
+                limpiarFormulario();
             });
         });
     </script>
