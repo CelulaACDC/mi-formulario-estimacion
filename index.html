@@ -248,7 +248,7 @@
 
         <label for="esfuerzo">Esfuerzo (1-5):</label>
         <select id="esfuerzo" name="esfuerzo">
-             <option value="1">1</option><option value="2">2</option>
+            <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
             <option value="5">5</option>
         </select>
@@ -262,14 +262,14 @@
 
         <label for="impactoNegocio">Impacto en el negocio (1-5):</label>
         <select id="impactoNegocio" name="impactoNegocio">
-           <option value="1">1</option><option value="2">2</option>
+            <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
             <option value="5">5</option>
         </select>
 
         <label for="dependencias">Dependencias (1-5):</label>
         <select id="dependencias" name="dependencias">
-          <option value="1">1</option><option value="2">2</option>
+            <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
             <option value="5">5</option>
         </select>
@@ -329,7 +329,7 @@
             .then(data => {
                 console.log("Respuesta del servidor:", data);
                 alert("Estimación enviada con éxito ✅");
-                form.reset();
+                form.reset(); // Esta línea resetea el formulario
             })
             .catch(error => {
                 console.error("Error al enviar la estimación:", error);
