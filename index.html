@@ -1,9 +1,10 @@
+// HTML
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Formulario de Estimación de Historias Células Alkosto - Ktronix</title>
+    <title>Formulario de Estimación de Historias Células Alkosto - Ktronix Daniel</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -295,7 +296,7 @@
             const impactoNegocio = document.getElementById("impactoNegocio").value;
             const dependencias = document.getElementById("dependencias").value;
 
-            const url = "https://script.google.com/macros/s/AKfycbw5mVtVexNMZfBU4Fv97zqaefN3VaLMssB3WcdIChzV422lZBdEIIWnYECuvQgUC0fLvg/exec"; // Reemplaza con la URL de tu script
+            const url = "https://script.google.com/macros/s/AKfycbzn90sMLdjFZmJ6SjqCCAC084U1auG55kuaxw4scso4P9U4YONFEtBkTnpv7qkZ4zbRlQ/exec"; // Reemplaza con la URL de tu script
 
             const formData = new URLSearchParams();
             formData.append("fecha", fecha);
@@ -319,12 +320,17 @@
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                return response.json(); // Cambiado a response.json()
+                return response.json();
             })
             .then(data => {
                 console.log("Respuesta del servidor:", data);
-                alert("Estimación enviada con éxito ✅");
-                form.reset();
+                if (data.status === "OK") {
+                    alert("Estimación enviada con éxito ✅");
+                    form.reset();
+                } else {
+                    alert("Ocurrió un error al enviar la estimación ❌. Por favor, revisa la consola para más detalles.");
+                }
+
             })
             .catch(error => {
                 console.error("Error al enviar la estimación:", error);
