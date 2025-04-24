@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Formulario de Estimación de Historias Células Alkosto - Ktronix</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             padding: 20px;
-            background-color: transparent; /* Fondo transparente */
+            background-color: #f4f4f4;
             color: #333;
             line-height: 1.6;
         }
@@ -20,8 +20,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #004AAD80, #F5822080); /* Degradado con transparencia */
-            opacity: 0.5; /* Ajusta la opacidad para controlar la intensidad del color */
+            background: linear-gradient(135deg, #004aad80, #f5822080);
+            opacity: 0.5;
             z-index: -1;
         }
         h1 {
@@ -111,9 +111,9 @@
         }
 
         .info-header {
-            font-size: 1.2em;
+            font-size: 1.5em;
             font-weight: bold;
-            margin-top: 2rem;
+            margin-top: 3rem;
             margin-bottom: 1rem;
             color: #004AAD;
             text-align: center;
@@ -150,7 +150,7 @@
 </head>
 <body>
     <div class="logos">
-        </div>
+    </div>
 
     <h1>Formulario de Estimación de Historias Células Alkosto - Ktronix</h1>
 
@@ -249,28 +249,24 @@
         <select id="esfuerzo" name="esfuerzo">
             <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
-            <option value="5">5</option>
         </select>
 
         <label for="incertidumbre">Incertidumbre (1-5):</label>
         <select id="incertidumbre" name="incertidumbre">
             <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
-            <option value="5">5</option>
         </select>
 
         <label for="impactoNegocio">Impacto en el negocio (1-5):</label>
         <select id="impactoNegocio" name="impactoNegocio">
             <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
-            <option value="5">5</option>
         </select>
 
         <label for="dependencias">Dependencias (1-5):</label>
         <select id="dependencias" name="dependencias">
             <option value="1">1</option><option value="2">2</option>
             <option value="3">3</option><option value="4">4</option>
-            <option value="5">5</option>
         </select>
 
         <button type="submit">Calcular Estimación</button>
@@ -299,7 +295,7 @@
             const impactoNegocio = document.getElementById("impactoNegocio").value;
             const dependencias = document.getElementById("dependencias").value;
 
-            const url = "https://script.google.com/macros/s/AKfycbyTO0LXRN-9zgMueO7lKkVeo01x47UJ0g-da3zBAIOoznqx-MYDfmgD63L3RGxJvRFROg/exec";
+            const url = "https://script.google.com/macros/s/AKfycbyy2xanqnRqE0yK3OeyGNOr5JTSbY6mcue82I1rWw3iaMePA6_00eS4-X-IxW_t_E6r9g/exec"; // Reemplaza con la URL de tu script
 
             const formData = new URLSearchParams();
             formData.append("fecha", fecha);
@@ -323,7 +319,7 @@
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                return response.text();
+                return response.json(); // Cambiado a response.json()
             })
             .then(data => {
                 console.log("Respuesta del servidor:", data);
